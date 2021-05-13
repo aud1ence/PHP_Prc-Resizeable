@@ -23,11 +23,11 @@ class Circle extends Shape implements Resizeable
         return $percent * $this->calculateArea();
     }
 
-    public function toArray($percent): array
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
-        return array("name" => $this->name,
-            "beforeArea" => $this->calculateArea(),
-            "afterArea" => $this->resize($percent)
-        );
+        return $this->name;
     }
 }

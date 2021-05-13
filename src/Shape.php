@@ -10,10 +10,4 @@ class Shape
     {
         $this->name = $name;
     }
-
-    public function toString()
-    {
-
-    }
-
 }

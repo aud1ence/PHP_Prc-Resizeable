@@ -7,27 +7,21 @@ use Src\Circle;
 use Src\Rectangle;
 use Src\Square;
 
-$circle = new Circle("Circle", 5);
-$circle->resize(10);
-$arr[0] = $circle->toArray(10);
-echo "<br>";
+$arr = [];
+array_push($arr,$circle = new Circle("Circle", 5));
+array_push($arr,$rectangle = new Rectangle("Rectangle", 12, 23));
+array_push($arr,$square = new Square("Square", 20));
+//$circle->resize(10);
+//$arr[0] = $circle->toArray(10);
+//echo "<br>";
 
-$rectangle = new Rectangle("Rectangle", 12, 23);
-$rectangle->resize(23);
-$arr[1] = $rectangle->toArray(23);
-echo "<br>";
+;
+//$rectangle->resize(23);
+//$arr[1] = $rectangle->toArray(23);
+//echo "<br>";
+$percent = rand(1,100);
+//$arr->resize($percent);
 
-$square = new Square("Square", 20);
-$rectangle->toArray(90);
-$arr[2] = $square->toArray(90);
-
-//$arr = [
-//
-//];
-//function shapeArray($arr)
-//{
-//    return
-//}
 ?>
 <!doctype html>
 <html lang="en">
@@ -44,9 +38,10 @@ $arr[2] = $square->toArray(90);
             margin-left: 400px;
             width: 500px;
             height: 500px;
+            border-collapse: collapse;
         }
         th,td {
-            border: solid 1px palegoldenrod;
+            border: solid 1px darkslateblue;
         }
     </style>
 </head>
@@ -62,11 +57,9 @@ $arr[2] = $square->toArray(90);
     <?php foreach ($arr as $key => $value): ?>
         <tr>
             <td><?php echo $key + 1 ?></td>
-            <?php foreach ($value
-
-                           as $item): ?>
-                <td><?php echo $item; ?></td>
-            <?php endforeach; ?>
+            <td><?php echo $value->getName() ?></td>
+            <td><?php echo $value->calculateArea() ?></td>
+            <td><?php echo $value->resize($percent) ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
